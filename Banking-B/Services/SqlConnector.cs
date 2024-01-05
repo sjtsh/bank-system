@@ -9,26 +9,26 @@ namespace Banking_B.Services
 
         UserModel IDataConnection.FindUserByPhone(string phone)
         {
-            using Transaction context = new();
+            using Context context = Context.Get();
             return context.Users.Where(user => user.PhoneNumber == phone && !user.IsDeleted).FirstOrDefault();
         }
 
         UserModel IDataConnection.CreateUser(UserModel user)
         {
-            using Transaction context = new();
+            using Context context = Context.Get();
             context.Add(user);
             return user;
         }
 
         List<UserModel> IDataConnection.GetUsers()
         {
-            using Transaction context = new();
+            using Context context = Context.Get();
             return context.Users.Where(user => !user.IsDeleted).Include(user => user.Bank).ToList();
         }
 
         UserModel IDataConnection.UpdateUser(UserModel information)
         {
-            using Transaction context = new();
+            using Context context = Context.Get();
             UserModel user = context.Users.Where(element => information.Id == element.Id).FirstOrDefault();
             if (user.Id == null)
             {
@@ -46,7 +46,7 @@ namespace Banking_B.Services
 
         List<BankModel> IDataConnection.GetBanks()
         {
-            using (Transaction context = new Transaction())
+            using Context context = Context.Get();
             {
                 return context.Banks.OrderBy(bank => bank.Name).ToList();
             }
@@ -55,7 +55,7 @@ namespace Banking_B.Services
         UserTransactionModel IDataConnection.CreateTransaction(UserTransactionModel transaction)
         {
             /// Uses raw sql query so "increment can be used" in order to prevent race conditions
-            using (Transaction context = new Transaction())
+            using Context context = Context.Get();
             {
                 context.Add(transaction);
                 context.Database.BeginTransaction();
@@ -72,7 +72,7 @@ namespace Banking_B.Services
         /// </summary>
         private UserTransactionModel CreateTransaction(UserTransactionModel transaction)
         {
-            using (Transaction context = new Transaction())
+            using Context context = Context.Get();
             {
                 context.Database.ExecuteSqlRaw($"UPDATE [Blogs] SET [Url] = NULL");
                 return transaction;
