@@ -8,10 +8,8 @@ namespace Banking.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class UserController(ILogger<UserController> logger) : ControllerBase
+    public class UserController(ILogger<UserController> logger, IUserService service) : Controller
     {
-        private readonly IUserService service = new UserService();
-
         private readonly ILogger<UserController> _logger = logger;
 
         [HttpGet(Name = "GetUsers")]

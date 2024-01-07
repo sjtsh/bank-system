@@ -1,21 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
 
 namespace Banking.Models
 {
-    public partial class UserModel
+    public partial class UserModel : IdentityUser
     {
         #region Constructor
         /// <summary>
         /// Signup for normal user
         /// </summary>
         public UserModel(string phoneNumber, string firstName, string? middleName, string lastName, string email, string password) {
-            PhoneNumber = phoneNumber;
+            SetPhoneNumber(phoneNumber);
             FirstName = firstName;
             MiddleName = middleName;
             LastName = lastName;
-            Email = email;
+            SetEmail(email);
             Password = password;
         }
 
@@ -24,7 +25,7 @@ namespace Banking.Models
         /// </summary>
         public UserModel(string phoneNumber, string firstName, string lastName, string password)
         {
-            _phoneNumber = phoneNumber;
+            SetPhoneNumber(phoneNumber);
             FirstName = firstName;
             LastName = lastName;
             Password = password;
@@ -40,56 +41,59 @@ namespace Banking.Models
         #endregion
 
         #region Fields
-        private string _phoneNumber = string.Empty;
-        private string _email = string.Empty;
         private string _firstName = string.Empty;
         private string? _middleName;
         private string _lastName = string.Empty;
         private string _password = string.Empty;
+
+        #endregion
+        #region Properties
         #endregion
 
 
         #region Properties
-        public string PhoneNumber
+        public string GetPhoneNumber()
+        { return PhoneNumber!; }
+        #endregion
+
+
+        #region Properties
+        public void SetPhoneNumber(string value)
         {
-            get { return _phoneNumber; }
-            set
+            value = value.Trim();
+            if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
             {
-                value = value.Trim();
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException("Phone number can't be empty.");
-                }
-                if (value.Length != 10)
-                {
-                    throw new ArgumentException("Phone number must be of length ten.");
-                }
-                if (int.TryParse(value, out _))
-                {
-                    throw new ArgumentException("Phone number is invalid.");
-                }
-                _phoneNumber = value;
+                throw new ArgumentException("Phone number can't be empty.");
             }
+            if (value.Length != 10)
+            {
+                throw new ArgumentException("Phone number must be of length ten.");
+            }
+            if (int.TryParse(value, out _))
+            {
+                throw new ArgumentException("Phone number is invalid.");
+            }
+            PhoneNumber = value;
         }
-        public string? Email
+
+        public string? GetEmail()
+        { return Email; }
+
+
+        public void SetEmail(string? value)
         {
-            get
-            { return _email; }
-            set
+            if (value == null) return;
+            value = value.Trim();
+            if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
             {
-                if (value == null) return;
-                value = value.Trim();
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException("Email can't be empty.");
-                }
-                if (!EmailRegex().Match(value).Success)
-                {
-                    throw new ArgumentException("Email doesn't have a correct format.");
-                }
-                _email = value;
+                throw new ArgumentException("Email can't be empty.");
             }
-        }
+            if (!EmailRegex().Match(value).Success)
+            {
+                throw new ArgumentException("Email doesn't have a correct format.");
+            }
+            Email = value;
+        } 
 
         public string FullName
         {
@@ -204,9 +208,6 @@ namespace Banking.Models
 
         #region Generated Fields
         public int? AccountNumber { get; set; }
-
-        [Key]
-        public int? Id { get; set; }
 
         [Display(Name = "LastActivity")]
         [DataType(DataType.Date)]

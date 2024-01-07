@@ -126,3 +126,14 @@ D:\Study\Projects\bank-system\Banking\obj\Debug\net8.0\refint\Banking.dll
 D:\Study\Projects\bank-system\Banking\obj\Debug\net8.0\Banking.pdb
 D:\Study\Projects\bank-system\Banking\obj\Debug\net8.0\Banking.genruntimeconfig.cache
 D:\Study\Projects\bank-system\Banking\obj\Debug\net8.0\ref\Banking.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Study\Projects\bank-system\Banking\obj\Debug\net8.0\Banking.MvcApplicationPartsAssemblyInfo.cs
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll

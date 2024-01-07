@@ -2,7 +2,7 @@
 
 namespace Banking.Services
 {
-    internal interface IBankService
+    public interface IBankService
     {
         /// <summary>
         /// Get Bank Summary

@@ -4,18 +4,16 @@ using Banking.Models;
 
 namespace Banking.Services
 {
-    public class TransactionService : ITransactionService
+    public class TransactionService(Context context) : ITransactionService
     {
         UserTransactionModel ITransactionService.CreateTransaction(UserTransactionModel transaction)
         {
             /// Uses raw sql query so "increment can be used" in order to prevent race conditions
-            using Context context = Context.Get();
-            {
-                context.Add(transaction);
-                context.Database.BeginTransaction();
-                context.Database.ExecuteSqlRaw($"UPDATE [Blogs] SET [Url] = NULL");
-                return transaction;
-            }
+            context.Add(transaction);
+            context.Database.BeginTransaction();
+            context.Database.ExecuteSqlRaw($"UPDATE [Blogs] SET [Url] = NULL");
+            context.SaveChanges();
+            return transaction;
         }
 
         /// <summary>
@@ -26,11 +24,8 @@ namespace Banking.Services
         /// </summary>
         private UserTransactionModel CreateTransaction(UserTransactionModel transaction)
         {
-            using Context context = Context.Get();
-            {
-                context.Database.ExecuteSqlRaw($"UPDATE [Blogs] SET [Url] = NULL");
-                return transaction;
-            }
+            context.Database.ExecuteSqlRaw($"UPDATE [Blogs] SET [Url] = NULL");
+            return transaction;
         }
 
         List<UserTransactionModel> ITransactionService.GetUserTransaction(int userId, DateTime start, DateTime end)

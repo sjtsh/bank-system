@@ -1,17 +1,16 @@
 ﻿using Banking.Models;
 using Banking.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Banking.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class BankController(ILogger<BankController> logger) : ControllerBase
+    public class BankController(ILogger<BankController> logger, IBankService service) : Controller
     {
-        private readonly IBankService service = new BankService();
 
         private readonly ILogger<BankController> _logger = logger;
 

@@ -2,13 +2,15 @@
 
 namespace Banking.Models.Seeder
 {
-    public class BankSeeder
+    public class BankSeeder(IBankService service)
     {
-        private readonly IBankService service = new BankService();
         private readonly string[] BankNames = ["The National Bank", "Agricultural Bank", "Trust Source Bank", "Native Non Profitable Bank", "Standard Chartered Bank"];
 
-        public BankSeeder() {
-            service.CreateBanks(BankNames);
+        void Seed() {
+            if(service.GetBanks().Count == 0)
+            {
+                service.CreateBanks(BankNames);
+            }
         }
     }
 }
