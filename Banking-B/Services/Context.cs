@@ -41,6 +41,7 @@ namespace Banking_B.Services
         private static void SeedIfEmpty()
         {
             _ = new BankSeeder();
+            _ = new UserSeeder();
         }
 
         public static Context Get()

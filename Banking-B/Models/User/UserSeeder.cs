@@ -11,13 +11,13 @@ namespace Banking_B.Models.Seeder
         ];
 
         private readonly UserModel[] NormalUsers = [
-            //new UserModel("9876543210", "manjil", "shrestha","admin@gmail.com", "admin123"),
-            //new UserModel("9840339289", "manjil", "shrestha", "admin123"),
+            new UserModel("9876543210", "manjil", null, "shrestha","admin@gmail.com", "admin123"),
+            new UserModel("9840339289", "manjil", "shrestha", "admin123"),
         ];
 
         public UserSeeder()
         {
-            //service.CreateUsers([.. AdminUsers, .. NormalUsers]);
+            service.CreateUsers([.. AdminUsers, .. NormalUsers]);
         }
     }
 }

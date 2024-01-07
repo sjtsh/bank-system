@@ -9,6 +9,8 @@ namespace Banking_B.Models.Configuration
         {
             builder.ToTable("Bank");
 
+            builder.HasIndex(user => user.Name).IsUnique();
+
             builder.HasKey(i => i.Id);
 
             builder.Property(i => i.Name)

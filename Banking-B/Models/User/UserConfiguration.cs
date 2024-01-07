@@ -9,6 +9,12 @@ namespace Banking_B.Models.Configuration
         {
             builder.ToTable("User");
 
+            builder.HasIndex(user => user.PhoneNumber).IsUnique();
+
+            builder.HasIndex(user => user.Email).IsUnique();
+
+            builder.HasIndex(user => user.AccountNumber).IsUnique();
+
             builder.HasKey(i => i.Id);
 
             builder.HasOne(u => u.Bank)

@@ -1,0 +1,45 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <form class="login-form" id="login-form" asp-action="register" asp-controller="auth">
+            <h3 class="text-center my-3">Login Now</h3>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example1">First Name</label>
+                <input asp-for="FirstName" class="form-control" required />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example1">Middle Name</label>
+                <input asp-for="MiddleName" class="form-control"  />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example1">Email</label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example1">Phone Number</label>
+                <input asp-for="PhoneNumber" class="form-control" required />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Password</label>
+                <input type="password" asp-for="Password" class="form-control" required />
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <div>
+                <a href="/Home/login">Already have account. Click here</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
