@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Banking-B",
+    "\\Banking-B\\Controllers",
+    "\\Banking-B\\Services",
+    "\\Banking-B\\Views"
   ],
+  "SelectedNode": "\\Banking-B\\Banking-B.sln",
   "PreviewInSolutionExplorer": false
 }

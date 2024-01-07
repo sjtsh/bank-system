@@ -6,7 +6,6 @@ D:\Study\Projects\bank-system\Banking-B\obj\Debug\net8.0\Banking-B.csproj.CoreCo
 D:\Study\Projects\bank-system\Banking-B\obj\Debug\net8.0\Banking-B.MvcApplicationPartsAssemblyInfo.cs
 D:\Study\Projects\bank-system\Banking-B\obj\Debug\net8.0\Banking-B.MvcApplicationPartsAssemblyInfo.cache
 D:\Study\Projects\bank-system\Banking-B\obj\Debug\net8.0\Banking-B.sourcelink.json
-D:\Study\Projects\bank-system\Banking-B\bin\Debug\net8.0\Web.config
 D:\Study\Projects\bank-system\Banking-B\bin\Debug\net8.0\appsettings.Development.json
 D:\Study\Projects\bank-system\Banking-B\bin\Debug\net8.0\appsettings.json
 D:\Study\Projects\bank-system\Banking-B\bin\Debug\net8.0\Banking-B.exe

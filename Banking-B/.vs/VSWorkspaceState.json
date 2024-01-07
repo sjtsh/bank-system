@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Services"
+    "\\Services",
+    "\\Services\\BankService",
+    "\\Services\\TransactionService",
+    "\\Services\\UserService"
   ],
-  "SelectedNode": "\\Services\\Transaction.cs",
+  "SelectedNode": "\\Services\\UserService\\IUserService.cs",
   "PreviewInSolutionExplorer": false
 }
