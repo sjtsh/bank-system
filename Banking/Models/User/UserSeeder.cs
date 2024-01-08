@@ -7,19 +7,19 @@ namespace Banking.Models.Seeder
     public class UserSeeder(RoleManager<IdentityRole> roleManager, UserManager<UserModel> userManager, IUserService service)
     {
         private readonly UserModel[] AdminUsers = [
-            new UserModel("9876543210", "Admin", "Admin", "admin123"),
-            new UserModel("9840339289", "Manjil", "Shrestha", "admin123"),
+            new UserModel("9876543210", "Admin", "Admin", "Admin@123"),
+            new UserModel("9840339289", "Manjil", "Shrestha", "Admin@123"),
         ];
 
         private readonly UserModel[] NormalUsers = [
-            new UserModel("9876543220", "Ram", "Louise", "Shrestha", "ram@gmail.com", "user1234"),
-            new UserModel("9840339239", "Shyam", null, "Jones", "shyam@gmail.com", "user1234"),
-            new UserModel("9876541220", "Sita", "Grace", "Clarke", "ram@gmail.com", "user1234"),
-            new UserModel("9840349239", "Radha", null, "Smith", "shyam@gmail.com", "user1234"),
-            new UserModel("9876553220", "Suraj", null, "Baker", "ram@gmail.com", "user1234"),
-            new UserModel("9840330239", "Hari", null, "Walker", "shyam@gmail.com", "user1234"),
-            new UserModel("9876543120", "Priya", "Rose", "Adam", "ram@gmail.com", "user1234"),
-            new UserModel("9830339239", "Gita", null, "Brown", "shyam@gmail.com", "user1234"),
+            new UserModel("9876543220", "Ram", "Louise", "Shrestha", "ram@gmail.com", "User@123", 1),
+            new UserModel("9840339239", "Shyam", null, "Jones", "shyam@gmail.com", "User@123", 2),
+            new UserModel("9876541220", "Sita", "Grace", "Clarke", "sita@gmail.com", "User@123", 3),
+            new UserModel("9840349239", "Radha", null, "Smith", "radha@gmail.com", "User@123", 4),
+            new UserModel("9876553220", "Suraj", null, "Baker", "suraj@gmail.com", "User@123", 5),
+            new UserModel("9840330239", "Hari", null, "Walker", "hari@gmail.com", "User@123", 1),
+            new UserModel("9876543120", "Priya", "Rose", "Adam", "priya@gmail.com", "User@123", 2),
+            new UserModel("9830339239", "Gita", null, "Brown", "gita@gmail.com", "User@123", 3),
         ];
 
         public async Task Seed()
@@ -28,18 +28,16 @@ namespace Banking.Models.Seeder
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
             if (!await roleManager.RoleExistsAsync(UserRoles.User))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
-
             if (service.GetUsers().Count > 0) return;
             for (int i = 0; i < AdminUsers.Length; i++)
             {
-                UserModel user = service.CreateUser(AdminUsers[i]);
-                await userManager.AddToRolesAsync(user, [UserRoles.Admin, UserRoles.User]);
-
+                IdentityResult identity = await userManager.CreateAsync(AdminUsers[i], AdminUsers[i].Password);
+                await userManager.AddToRolesAsync(AdminUsers[i], [UserRoles.Admin, UserRoles.User]);
             }
             for (int i = 0; i < NormalUsers.Length; i++)
             {
-                UserModel user = service.CreateUser(NormalUsers[i]);
-                await userManager.AddToRoleAsync(user, UserRoles.User);
+                await userManager.CreateAsync(NormalUsers[i], NormalUsers[i].Password);
+                await userManager.AddToRoleAsync(NormalUsers[i], UserRoles.User);
             }
         }
     }

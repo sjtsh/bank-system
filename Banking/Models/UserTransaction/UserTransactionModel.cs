@@ -9,7 +9,7 @@ namespace Banking.Models
         /// <summary>
         /// Create transaction model
         /// </summary>
-        public UserTransactionModel(string remark, int recieverId, int senderId)
+        public UserTransactionModel(string remark, string recieverId, string senderId)
         {
             Remark = remark;
             RecieverId = recieverId;
@@ -63,9 +63,9 @@ namespace Banking.Models
         #endregion
 
         #region Foreign 
-        public int RecieverId { get; set; }
+        public string RecieverId { get; set; }
         public virtual UserModel? Reciever { get; set; }
-        public int SenderId { get; set; }
+        public string SenderId { get; set; }
         public virtual UserModel? Sender { get; set; }
         #endregion
 

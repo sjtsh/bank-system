@@ -11,13 +11,14 @@ namespace Banking.Models
         /// <summary>
         /// Signup for normal user
         /// </summary>
-        public UserModel(string phoneNumber, string firstName, string? middleName, string lastName, string email, string password) {
+        public UserModel(string phoneNumber, string firstName, string? middleName, string lastName, string email, string password, int bankId) {
             SetPhoneNumber(phoneNumber);
             FirstName = firstName;
             MiddleName = middleName;
             LastName = lastName;
             SetEmail(email);
             Password = password;
+            BankId = bankId;
         }
 
         /// <summary>
@@ -74,6 +75,7 @@ namespace Banking.Models
                 throw new ArgumentException("Phone number is invalid.");
             }
             PhoneNumber = value;
+            UserName = value;
         }
 
         public string? GetEmail()
@@ -146,6 +148,9 @@ namespace Banking.Models
                 _lastName = value;
             }
         }
+
+        //We dont need password in the user model as it will be managed by the usermanager
+        [NotMapped]
         public string Password
         {
             get { return _password; }
@@ -155,6 +160,14 @@ namespace Banking.Models
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Password can't be empty.");
+                }
+                if(!UpperLowercaseCharacterRegex().Match(value).Success)
+                {
+                    throw new ArgumentException("Password must have atleast 1 uppercase, 1 lowercase character");
+                }
+                if (!NonAlphanumericCharacterRegex().Match(value).Success)
+                {
+                    throw new ArgumentException("Password must have atleast 1 non alphanumeric character");
                 }
                 if (!MinCharacterRegex().Match(value).Success)
                 {
@@ -195,7 +208,7 @@ namespace Banking.Models
 
 
         #region Foreign 
-        public int BankId { get; set; }
+        public int? BankId { get; set; }
         public virtual BankModel? Bank { get; set; }
 
         [ForeignKey("RecieverId")]
@@ -221,8 +234,19 @@ namespace Banking.Models
         private static partial Regex EmailRegex();
 
         /// At least 8 characters with one letter and one number
-        [GeneratedRegex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")]
+        [GeneratedRegex(@"^(?=.*[a-z])(?=.*[A-Z]).{8,}$")]
         private static partial Regex MinCharacterRegex();
+
+        /// At least a characters with one uppercase
+        [GeneratedRegex(@"^(?=.*[a-z])(?=.*[A-Z]).+$")]
+        private static partial Regex UpperLowercaseCharacterRegex();
+
+        /// At least a characters with one non alphanumeric character
+        [GeneratedRegex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).+$")]
+        private static partial Regex NonAlphanumericCharacterRegex();
+
+        
+
         #endregion
     }
 }

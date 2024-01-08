@@ -36,10 +36,13 @@ namespace Banking.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            Console.WriteLine("Logining in");
             UserModel? user = _service.FindUserByPhone(model.PhoneNumber);
             Console.WriteLine(user);
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            bool isRightPassword = false;
+            if (user != null) {
+                isRightPassword = await _userManager.CheckPasswordAsync(user, model.Password);
+            }
+            if (user != null && isRightPassword)
             {
                 var userRoles = await _userManager.GetRolesAsync(user);
                 Console.WriteLine(userRoles);
@@ -78,11 +81,14 @@ namespace Banking.Controllers
             UserModel? userExists = _service.FindUserByPhone(model.GetPhoneNumber());
             if (userExists != null)
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction("Login", "Auth"); 
             }
-            UserModel createdUser = _service.CreateUser(model);
-            await _userManager.AddToRoleAsync(createdUser, UserRoles.User);
+            IdentityResult identity = await _userManager.CreateAsync(model, model.Password);
+            if (!identity.Succeeded)
+                return RedirectToAction("SignUp", "Auth"); 
+            await _userManager.AddToRoleAsync(model, UserRoles.User);
             return RedirectToAction("Login", "Auth");
-        }
+        } 
     }
 }
+ 

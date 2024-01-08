@@ -2,6 +2,6 @@
 {
     public interface ISeeder
     {
-        void SeedIfEmpty();
+        Task SeedIfEmpty();
     }
 }

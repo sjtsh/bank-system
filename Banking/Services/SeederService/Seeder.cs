@@ -1,22 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using Banking.Models;
+﻿using Banking.Models;
 using Banking.Models.Seeder;
 using Microsoft.AspNetCore.Identity;
 
 namespace Banking.Services
 {
-    public class Seeder(RoleManager<IdentityRole> roleManager, UserManager<UserModel> userManager, IUserService userService, IBankService bankService): ISeeder
+    public class Seeder(RoleManager<IdentityRole> roleManager, UserManager<UserModel> userManager, IUserService userService, IBankService bankService, Context context) : ISeeder
     {
           
         private readonly RoleManager<IdentityRole> RoleManager = roleManager;
         private readonly UserManager<UserModel> UserManager = userManager;
+        private readonly Context Context = context;
         private readonly IUserService UserService = userService;
         private readonly IBankService BankService = bankService;
 
-        void ISeeder.SeedIfEmpty()
+        async Task ISeeder.SeedIfEmpty()
         {
-            _ = new BankSeeder(BankService);
-            _ = new UserSeeder(RoleManager, UserManager, UserService);
+            Context.Database.EnsureCreated();
+            new BankSeeder(BankService).Seed();
+            await new UserSeeder(RoleManager, UserManager, UserService).Seed();
         }
     }
 }
