@@ -6,8 +6,6 @@ namespace Banking.Services
 {
     public class UserService(Context context) : IUserService
     {
-
-
         UserModel? IUserService.FindUserByPhone(string phone)
         {
             return context.Users.Where(user => user.PhoneNumber == phone && !user.IsDeleted).FirstOrDefault();
@@ -41,14 +39,6 @@ namespace Banking.Services
         int? IUserService.GetGreatestAccountNumber()
         {
             return context.Users.Max(element => element.AccountNumber);
-        }
-
-        int IUserService.CreateUsers(UserModel[] users)
-        {
-            return 0;
-            //using Context context = Context.Get();
-            //int count=   context.AddRange(users);
-            //return count;
         }
     }
 }

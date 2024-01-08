@@ -2,7 +2,7 @@
     
 namespace Banking.Services
 {
-    internal interface ITransactionService
+    public interface ITransactionService
     {
         /// <summary>
         /// Create transaction 
@@ -17,7 +17,19 @@ namespace Banking.Services
         /// </summary>
         /// <param name="transaction"></param>
         /// <returns>the created transaction</returns>
-        UserTransactionModel CreateTransaction(UserTransactionModel transaction);
+        UserTransactionModel? CreateTransaction(UserTransactionModel transaction);
+
+        /// <summary>
+        /// Sign in deposit for new users to play with
+        /// 1. increases reciever's total balance
+        /// 2. creates a new transaction
+        /// 3. increases receiving bank's total balance
+        /// 4  increases receiving bank's total deposit
+        /// 5. update user's last activity
+        /// </summary>
+        /// <param name="transaction"></param>
+        /// <returns>the created transaction</returns>
+        UserTransactionModel SignInDeposit(UserTransactionModel transaction);
 
         /// <summary>
         /// Get the user's transactions
@@ -31,7 +43,7 @@ namespace Banking.Services
         /// 2. the recieving user
         /// 3. recieving bank
         /// </returns>
-        List<UserTransactionModel> GetUserTransaction(int userId, DateTime start, DateTime end);
+        List<UserTransactionModel> GetUserTransaction(string userId, DateTime start, DateTime end);
 
 
         /// <summary>
@@ -44,24 +56,11 @@ namespace Banking.Services
         /// <returns> 
         /// 1. bank's transactions
         /// 2. the recieving user
-        /// 3. the sending user
+        /// 3. the sending 
+        /// 4. the recieving bank
+        /// 5. the sending bank
         /// </returns>
         List<UserTransactionModel> GetBankTransaction(int bankId, DateTime start, DateTime end);
 
-        /// <summary>
-        /// Get all transactions
-        /// Sorted by creation date
-        /// </summary>
-        /// <param name="bankId"></param>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
-        /// <returns> 
-        /// 1. bank's transactions
-        /// 2. their recieving user
-        /// 3. the sending user
-        /// 4. the sending bank 
-        /// 5. the recieving bank
-        /// </returns>
-        List<UserTransactionModel> GetTransactions(int bankId, DateTime start, DateTime end);
     }
 }

@@ -20,9 +20,6 @@ builder.Services.AddScoped<ISeeder, Seeder>();
 
 // For Identity
 builder.Services.AddIdentity<UserModel, IdentityRole>().AddEntityFrameworkStores<Context>().AddDefaultTokenProviders();
-//builder.Services.AddIdentityCore<UserModel>();
-//builder.Services.AddIdentity<UserModel, IdentityRole>().AddEntityFrameworkStores<UserModel>().AddUserStore<UserModel>().AddDefaultTokenProviders();
-//builder.Services.AddDefaultIdentity<UserModel>().AddEntityFrameworkStores<UserModel>().AddUserStore<UserModel>().AddDefaultTokenProviders();
 
 // Adding Authentication
 builder.Services.AddAuthentication(options =>
@@ -59,7 +56,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Auth}/{action=Login}/{id?}");
-    //pattern: "{controller=Seed}/{action=Index}/{id?}");
+    //pattern: "{controller=Auth}/{action=Login}/{id?}");
+    pattern: "{controller=Seed}/{action=Index}/{id?}");
 
 app.Run();

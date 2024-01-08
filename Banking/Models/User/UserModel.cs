@@ -127,6 +127,7 @@ namespace Banking.Models
                 _firstName = value;
             } 
         }
+
         public string LastName
         {
             get { return _lastName; }

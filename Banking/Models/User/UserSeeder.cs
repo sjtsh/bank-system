@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Banking.Models.Seeder
 {
-    public class UserSeeder(RoleManager<IdentityRole> roleManager, UserManager<UserModel> userManager, IUserService service)
+    public class UserSeeder(RoleManager<IdentityRole> roleManager, UserManager<UserModel> userManager, IUserService service, ITransactionService transactionService)
     {
         private readonly UserModel[] AdminUsers = [
             new UserModel("9876543210", "Admin", "Admin", "Admin@123"),
@@ -15,7 +15,7 @@ namespace Banking.Models.Seeder
             new UserModel("9876543220", "Ram", "Louise", "Shrestha", "ram@gmail.com", "User@123", 1),
             new UserModel("9840339239", "Shyam", null, "Jones", "shyam@gmail.com", "User@123", 2),
             new UserModel("9876541220", "Sita", "Grace", "Clarke", "sita@gmail.com", "User@123", 3),
-            new UserModel("9840349239", "Radha", null, "Smith", "radha@gmail.com", "User@123", 4),
+            new UserModel("9840349239", "Radha", null, "Smith", "radha@gmail.com", "User@123", 4), 
             new UserModel("9876553220", "Suraj", null, "Baker", "suraj@gmail.com", "User@123", 5),
             new UserModel("9840330239", "Hari", null, "Walker", "hari@gmail.com", "User@123", 1),
             new UserModel("9876543120", "Priya", "Rose", "Adam", "priya@gmail.com", "User@123", 2),
@@ -38,6 +38,7 @@ namespace Banking.Models.Seeder
             {
                 await userManager.CreateAsync(NormalUsers[i], NormalUsers[i].Password);
                 await userManager.AddToRoleAsync(NormalUsers[i], UserRoles.User);
+                transactionService.SignInDeposit(new UserTransactionModel(NormalUsers[i].Id, 10000));
             }
         }
     }

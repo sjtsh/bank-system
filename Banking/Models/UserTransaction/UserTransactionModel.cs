@@ -9,11 +9,18 @@ namespace Banking.Models
         /// <summary>
         /// Create transaction model
         /// </summary>
-        public UserTransactionModel(string remark, string recieverId, string senderId)
+        public UserTransactionModel(string? remark, string recieverId, string senderId, double amount)
         {
             Remark = remark;
             RecieverId = recieverId;
             SenderId = senderId;
+            Amount = amount;
+            CreatedAt = DateTime.Now;
+        }
+        public UserTransactionModel(string recieverId, double amount)
+        {
+            RecieverId = recieverId;
+            Amount = amount;
             CreatedAt = DateTime.Now;
         }
         #endregion
@@ -65,7 +72,7 @@ namespace Banking.Models
         #region Foreign 
         public string RecieverId { get; set; }
         public virtual UserModel? Reciever { get; set; }
-        public string SenderId { get; set; }
+        public string? SenderId { get; set; }
         public virtual UserModel? Sender { get; set; }
         #endregion
 

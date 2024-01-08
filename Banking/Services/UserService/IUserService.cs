@@ -48,12 +48,5 @@ namespace Banking.Services
         /// </summary>
         /// <returns></returns>
         int? GetGreatestAccountNumber();
-
-        /// <summary>
-        /// Creates many users
-        /// Only for seeding
-        /// </summary>
-        /// <returns>Number of users created</returns>
-        int CreateUsers(UserModel[] users);
     }
 } 
