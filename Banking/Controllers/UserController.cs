@@ -2,21 +2,28 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Banking.Models;
 using Banking.Services;
+using JWTAuthentication.Authentication;
 
 namespace Banking.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = UserRoles.User)]
     [ApiController]
     [Route("[controller]")]
-    public class UserController(ILogger<UserController> logger, IUserService service) : Controller
+    public class UserController(ILogger<UserController> logger, IUserService userService, ITransactionService transactionService) : Controller
     {
-        private readonly ILogger<UserController> _logger = logger;
 
-        [HttpGet(Name = "GetUsers")]
-        public List<UserModel> Get()
+        public IActionResult GetUserData(string userId, DateTime start, DateTime end)
         {
-            _logger.LogInformation("GET /User");
-            return service.GetUsers();
+            List<UserTransactionModel> transactions = transactionService.GetUserTransaction(userId, start, end);
+            return View(transactions);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateUserData(UserModel model)
+        {
+            logger.LogInformation("The user is updating his data");
+            userService.UpdateUser(model);
+            return RedirectToAction("Index", "GetUserData");
         }
     }
 }

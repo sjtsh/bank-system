@@ -79,6 +79,8 @@ namespace Banking.Services
             return [
                 .. context.Transactions
                 .Where(transaction => transaction.RecieverId == userId || transaction.SenderId == userId)
+                .Where(transaction => transaction.CreatedAt >= start)
+                .Where(transaction => transaction.CreatedAt <= end)
                 .Include(transaction => transaction.Reciever)
                 .ThenInclude(reciever => reciever!.Bank)
                 .OrderBy(transaction => transaction.CreatedAt)
@@ -89,6 +91,8 @@ namespace Banking.Services
         {
             return [
                 .. context.Transactions
+                .Where(transaction => transaction.CreatedAt >= start)
+                .Where(transaction => transaction.CreatedAt <= end)
                 .Include(transaction => transaction.Reciever)
                 .ThenInclude(reciever => reciever!.Bank)
                 .Include(transaction => transaction.Sender)

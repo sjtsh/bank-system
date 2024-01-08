@@ -27,12 +27,6 @@ namespace Banking.Controllers
             return View();
         }
 
-        [Authorize(Roles = UserRoles.User)]
-        public IActionResult Home()
-        {
-            return View();
-        }
-
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
@@ -70,7 +64,15 @@ namespace Banking.Controllers
                 Console.WriteLine(token);
                 TempData["token"] = new JwtSecurityTokenHandler().WriteToken(token);
                 Console.WriteLine(TempData["token"]);
-                return RedirectToAction("Home", "Auth");
+                if (user.IsAdmin)
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    return RedirectToAction("GetUserData", "User");
+
+                }
             }
             return RedirectToAction("Login", "Auth");
         }
