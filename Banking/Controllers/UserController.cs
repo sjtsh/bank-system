@@ -41,12 +41,14 @@ namespace Banking.Controllers
                 model.UserModel = _userService.GetUser(userId);
                 model.Banks = _bankService.GetBanks();
             }
+
+            model.Users = _userService.GetUsers();
+
             model.TransactionModels = GetUserTransactionData(model);
             return View(model);
         }
         public IActionResult Index()
         {
-
             var firstNameClaim = User?.Identity?.Name;
 
             if (firstNameClaim != null)
@@ -54,17 +56,25 @@ namespace Banking.Controllers
                 ViewBag.Name = firstNameClaim;
             }
 
-            UserPageVM userPageVM = new UserPageVM();
+            UserPageVM model = new UserPageVM();
 
             string userId = User?.Identity?.GetUserId();
 
             if (userId != null)
             {
-                userPageVM.UserModel = _userService.GetUser(userId);
-                userPageVM.Banks = _bankService.GetBanks();
+                model.UserModel = _userService.GetUser(userId);
+                model.Banks = _bankService.GetBanks();
+                model.SenderId = userId;
             }
+            model.Users = _userService.GetUsers();
 
-            return View(userPageVM);
+            DateTime end = DateTime.Now;
+            DateTime start = end.AddMonths(-1);
+            model.StartDate = start;
+            model.EndDate = end;
+            model.TransactionModels = GetUserTransactionData(model);
+
+            return View(model);
         }
         public List<UserTransactionModel> GetUserTransactionData(UserPageVM model)
         {
@@ -103,6 +113,34 @@ namespace Banking.Controllers
             _logger.LogInformation("The user is updating his data");
             _userService.UpdateUser(model.UserModel);
             return RedirectToAction("Index", "User");
+        }
+        [HttpPost]
+        public IActionResult SendMoney(UserPageVM model)
+        {
+            UserTransactionModel userTransaction = new UserTransactionModel(
+                model.TransactionVM.Remarks,
+                model.TransactionVM.ReciverId, 
+                model.TransactionVM.SenderId, 
+                model.TransactionVM.Amount);
+
+            if(!_transactionService.CheckIfBalanceIsEnough(model.TransactionVM.Amount, model.TransactionVM.SenderId))
+            {
+                TempData["NotEnoughBalance"] = "yes";
+            }
+
+            var tr = _transactionService.CreateTransaction(userTransaction);
+
+            if(tr is null)
+            {
+                TempData["SendMoneyFail"] = "yes";
+
+            }
+            else
+            {
+                TempData["SendMoneySuccessful"] = "yes";
+            }
+
+            return RedirectToAction("Index");   
         }
     }
 }

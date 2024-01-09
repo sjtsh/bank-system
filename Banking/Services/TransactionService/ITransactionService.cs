@@ -44,6 +44,7 @@ namespace Banking.Services
         /// 3. recieving bank
         /// </returns>
         List<UserTransactionModel> GetUserTransaction(string userId, DateTime start, DateTime end);
+        bool CheckIfBalanceIsEnough(double sendingMoney, string senderId);
 
 
         /// <summary>

@@ -32,7 +32,6 @@ namespace Banking.Services
             user.LastName = information.LastName;
             user.SetEmail(information.GetEmail());
             user.IsDeleted = information.IsDeleted;
-            user.BankId = information.BankId;
             context.SaveChanges();
             return user;
         }

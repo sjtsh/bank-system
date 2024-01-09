@@ -88,6 +88,17 @@ namespace Banking.Services
                 ];
         }
 
+        bool ITransactionService.CheckIfBalanceIsEnough(double sendingMoney, string senderId)
+        {
+            var user = context.Users.Where(user => user.Id == senderId).First();
+            if(user.Balance > sendingMoney)
+            {
+                return true;
+            }
+            return false;
+               
+        }
+
         List<UserTransactionModel> ITransactionService.GetBankTransaction(int bankId, DateTime start, DateTime end)
         {
             return [

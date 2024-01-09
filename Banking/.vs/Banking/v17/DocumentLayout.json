@@ -3,48 +3,48 @@
   "WorkspaceRootPath": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\views\\admin\\banktransaction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:views\\admin\\banktransaction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\views\\admin\\usertransaction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:views\\admin\\usertransaction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\viewmodels\\banktransactionpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:viewmodels\\banktransactionpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\viewmodels\\usertransactionpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:viewmodels\\usertransactionpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\viewmodels\\userpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:viewmodels\\userpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\services\\transactionservice\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:services\\transactionservice\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\services\\transactionservice\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:services\\transactionservice\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\services\\seederservice\\seeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:services\\seederservice\\seeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\models\\usertransaction\\usertransactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:models\\usertransaction\\usertransactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\models\\user\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:models\\user\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\viewmodels\\userpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:viewmodels\\userpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\viewmodels\\transactionvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:viewmodels\\transactionvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\viewmodels\\usertransactionpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:viewmodels\\usertransactionpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\services\\userservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:services\\userservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -55,12 +55,20 @@
       "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\viewmodels\\adminpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:viewmodels\\adminpagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\models\\user\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:models\\user\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|d:\\.net\\dotnet banking system\\bank-system\\banking\\services\\seederservice\\seeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9133192E-AA94-4DF4-819D-552F617ABC3C}|Banking.csproj|solutionrelative:services\\seederservice\\seeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,73 +78,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 219,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAuwFMAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T12:08:32.269Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BankTransactionPageVM.cs",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\BankTransactionPageVM.cs",
-              "RelativeDocumentMoniker": "ViewModels\\BankTransactionPageVM.cs",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\BankTransactionPageVM.cs",
-              "RelativeToolTip": "ViewModels\\BankTransactionPageVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T13:37:04.396Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserTransaction.cshtml",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\Admin\\UserTransaction.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\UserTransaction.cshtml",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\Admin\\UserTransaction.cshtml",
-              "RelativeToolTip": "Views\\Admin\\UserTransaction.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-01-09T13:44:09.282Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BankTransaction.cshtml",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\Admin\\BankTransaction.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\BankTransaction.cshtml",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\Admin\\BankTransaction.cshtml",
-              "RelativeToolTip": "Views\\Admin\\BankTransaction.cshtml",
-              "ViewState": "AQIAABcAAAAAAAAAAAASwCMAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-01-09T13:41:31.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserPageVM.cs",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\UserPageVM.cs",
-              "RelativeDocumentMoniker": "ViewModels\\UserPageVM.cs",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\UserPageVM.cs",
-              "RelativeToolTip": "ViewModels\\UserPageVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AQIAAG0AAAAAAAAAAAAhwHUAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T13:37:32.587Z",
+              "WhenOpened": "2024-01-09T13:57:35.632Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -145,54 +100,93 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\TransactionService\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\TransactionService\\ITransactionService.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\TransactionService\\ITransactionService.cs",
+              "RelativeToolTip": "Services\\TransactionService\\ITransactionService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAiwBMAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T14:50:52.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TransactionService.cs",
               "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\TransactionService\\TransactionService.cs",
               "RelativeDocumentMoniker": "Services\\TransactionService\\TransactionService.cs",
               "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\TransactionService\\TransactionService.cs",
               "RelativeToolTip": "Services\\TransactionService\\TransactionService.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAAAFQAAAA4AAAA",
+              "ViewState": "AQIAACAAAAAAAAAAAAAQwB4AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T13:04:03.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Seeder.cs",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\SeederService\\Seeder.cs",
-              "RelativeDocumentMoniker": "Services\\SeederService\\Seeder.cs",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\SeederService\\Seeder.cs",
-              "RelativeToolTip": "Services\\SeederService\\Seeder.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwBQAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T13:02:04.236Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\User\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\User\\Index.cshtml",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\User\\Index.cshtml",
-              "RelativeToolTip": "Views\\User\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAABWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-01-09T12:58:45.295Z",
+              "WhenOpened": "2024-01-09T14:46:29.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHEAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T14:45:01.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Models\\User\\UserModel.cs",
+              "RelativeDocumentMoniker": "Models\\User\\UserModel.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Models\\User\\UserModel.cs",
+              "RelativeToolTip": "Models\\User\\UserModel.cs",
+              "ViewState": "AQIAAL8AAAAAAAAAAAAswMwAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T14:41:54.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TransactionVM.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\TransactionVM.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TransactionVM.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\TransactionVM.cs",
+              "RelativeToolTip": "ViewModels\\TransactionVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T14:33:39.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "UserTransactionPageVM.cs",
               "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\UserTransactionPageVM.cs",
               "RelativeDocumentMoniker": "ViewModels\\UserTransactionPageVM.cs",
               "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\UserTransactionPageVM.cs",
               "RelativeToolTip": "ViewModels\\UserTransactionPageVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T12:48:18.942Z",
+              "WhenOpened": "2024-01-09T14:33:26.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\UserService\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService\\UserService.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\UserService\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService\\UserService.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAUwCMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T14:29:33.427Z",
               "EditorCaption": ""
             },
             {
@@ -203,9 +197,9 @@
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
               "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\Account\\Register.cshtml",
               "RelativeToolTip": "Views\\Account\\Register.cshtml",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAEEAAAAAAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACcAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-01-09T12:39:17.988Z",
+              "WhenOpened": "2024-01-09T14:27:50.122Z",
               "EditorCaption": ""
             },
             {
@@ -216,61 +210,100 @@
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
               "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-01-09T12:38:52.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "site.css",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AQIAACoAAAAAAAAAAAAqwD8AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-01-09T12:19:07.181Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UserModel.cs",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Models\\User\\UserModel.cs",
-              "RelativeDocumentMoniker": "Models\\User\\UserModel.cs",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Models\\User\\UserModel.cs",
-              "RelativeToolTip": "Models\\User\\UserModel.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAgwAcAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T12:14:24.558Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAAACIAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T12:12:12.161Z",
+              "WhenOpened": "2024-01-09T14:27:45.721Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "AdminPageVM.cs",
-              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\AdminPageVM.cs",
-              "RelativeDocumentMoniker": "ViewModels\\AdminPageVM.cs",
-              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\AdminPageVM.cs",
-              "RelativeToolTip": "ViewModels\\AdminPageVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAdAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAACEAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-09T12:08:26.196Z",
+              "WhenOpened": "2024-01-09T14:18:39.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserPageVM.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\UserPageVM.cs",
+              "RelativeDocumentMoniker": "ViewModels\\UserPageVM.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\ViewModels\\UserPageVM.cs",
+              "RelativeToolTip": "ViewModels\\UserPageVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T14:15:21.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserTransactionModel.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Models\\UserTransaction\\UserTransactionModel.cs",
+              "RelativeDocumentMoniker": "Models\\UserTransaction\\UserTransactionModel.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Models\\UserTransaction\\UserTransactionModel.cs",
+              "RelativeToolTip": "Models\\UserTransaction\\UserTransactionModel.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAhwBIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T14:12:46.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TransactionController.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\TransactionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TransactionController.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Controllers\\TransactionController.cs",
+              "RelativeToolTip": "Controllers\\TransactionController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T14:12:41.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAADgAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-01-09T14:00:22.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Seeder.cs",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\SeederService\\Seeder.cs",
+              "RelativeDocumentMoniker": "Services\\SeederService\\Seeder.cs",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Services\\SeederService\\Seeder.cs",
+              "RelativeToolTip": "Services\\SeederService\\Seeder.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-09T13:59:18.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\Index.cshtml",
+              "ToolTip": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "Views\\User\\Index.cshtml",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAAMAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-01-09T13:57:39.113Z",
               "EditorCaption": ""
             }
           ]

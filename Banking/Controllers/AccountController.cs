@@ -111,10 +111,10 @@ namespace Banking.Controllers
             UserModel user = new UserModel(model.Phone, model.FirstName, model.MiddleName, model.LastName, model.Email, model.Password, model.BankId);
             IdentityResult identity = await _userManager.CreateAsync(user, user.Password);
             if (!identity.Succeeded)
-                return RedirectToAction("SignUp", "Auth");
+                return RedirectToAction("Regigster", "Account");
             await _userManager.AddToRoleAsync(user, UserRoles.User);
             TempData["register-message"] = "success";
-            return RedirectToAction("Login", "Auth");
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpGet]

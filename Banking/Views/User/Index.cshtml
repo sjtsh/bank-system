@@ -11,9 +11,9 @@
     </div>
     <div class="content my-2">
         <div class="row">
-            <div class="col-md col-sm col-lg col border-end personal-info">
-                <form class="form" asp-action="UpdateUserData" asp-controller="User" method="post">
-                    <h4 class="border-bottom my-2 py-3 fw-bold">Personal Information</h4>
+            <div class="col-md col-sm col-lg col border-end ">
+                <form class="border-bottom personal-info" asp-action="UpdateUserData" asp-controller="User" method="post">
+                    <h4 class="border-bottom my-2 py-3 fw-bold">Personal Information (@Model.UserModel.Balance)</h4>
                     <div class="my-2">
                         <span class="fw-bold">First Name :</span> <input type="text" asp-for="UserModel.FirstName" value=@Model.UserModel.FirstName />
                     </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="my-2">
                         <span class="fw-bold">Bank : </span>
-                        <select asp-for="UserModel.BankId" class="form-control" required>
+                        <select asp-for="UserModel.BankId" class="form-control" required readonly>
                             @foreach (var bank in Model?.Banks)
                             {
                                 <option value="@bank.Id" selected='@(Model?.UserModel?.BankId == bank.Id)'>@bank.Name</option>
@@ -40,8 +40,36 @@
                     </div>
                     <button type="submit" class="btn btn-secondary btn-block mb-4 mt-2">Update Info</button>
                 </form>
+
+                <form class="form" asp-action="SendMoney" asp-controller="User" method="post">
+                    <h4 class="border-bottom my-2 py-3 fw-bold">Send Money</h4>
+                    <div class="row">
+                        <div class="col-auto my-2">
+                            <span class="fw-bold">To :</span> 
+                            <select asp-for="TransactionVM.ReciverId" class="form-control" required>
+                                <option value="" selected>Select Person</option>
+                                @foreach (var usr in Model?.Users)
+                                {
+                                    <option value="@usr.Id">@usr.FullName</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-auto my-2">
+                            <span class="fw-bold">Amount</span> 
+                            <input type="number" asp-for="TransactionVM.Amount" class="form-control" required />
+                            <input type="hidden" asp-for="TransactionVM.SenderId" value="@Model.SenderId" />
+                        </div>
+                       
+                        <div class="col-md-12 col-12 my-2">
+                            <span class="fw-bold">Remarks :</span> 
+                            <textarea type="text" asp-for="TransactionVM.Remarks" class="form-control" required></textarea>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-4 mt-2">Send Now</button>
+                </form>
             </div>
-            <div class="col-md col-sm col-lg col">
+            <div class="col-md col-sm col-lg col my-transaction">
                 <h4 class="border-bottom my-2 py-3 fw-bold">My Transactions</h4>
                 <form class="transaction-info" asp-action="Index" asp-controller="User" method="post">
                     <div class="row">
@@ -72,7 +100,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (Model?.TransactionModels != null)
+                        @if (Model?.TransactionModels != null && Model.TransactionModels.Any())
                         {
                             @foreach (var trans in Model.TransactionModels)
                             {
@@ -88,10 +116,12 @@
                         {
                             <tr><td colspan="4" class="text-center">Not Found</td></tr>
                         }
+
                     </tbody>
                 </table>
             </div>
         </div>
+        
     </div>
 </div>
 
@@ -99,6 +129,19 @@
 
 @section Scripts {
     <script>
-
+        $(document).ready(function () {
+            var NotEnoughBalance = '@TempData["NotEnoughBalance"]';
+            var SendMoneyFail = '@TempData["SendMoneyFail"]';
+            var SendMoneySuccessful = '@TempData["SendMoneySuccessful"]';
+            if (NotEnoughBalance == 'yes') {
+                showToast("Not Enough balance", "error");
+            }
+            if (SendMoneyFail == 'yes') {
+                showToast("Send Money Failed.", "error");
+            }
+            if (SendMoneySuccessful == 'yes') {
+                showToast("Send Money Successfully.", "Success");
+            }
+        });
     </script>
 }

@@ -54,8 +54,8 @@ body {
     align-items: end;
     display: flex;
 }
-.user-list{
-    height:90vh;
+.user-list, .my-transaction {
+    height: 90vh;
     overflow-y: auto;
 }
 .user-transaction a{
