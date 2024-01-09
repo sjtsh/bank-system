@@ -35,7 +35,11 @@ namespace Banking.Models
         public int? Id { get; set; }
         public string? Remark
         {
-            get { return _remark; }
+            get
+            {
+                if (Sender?.Id == null) return "Sign In Bonus";
+                return _remark; 
+            }
             set
             {
                 if (value == null) return;
@@ -82,5 +86,24 @@ namespace Banking.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime CreatedAt { get; set; }
         #endregion
+        
+        public string? GetOtherUserName(string? userId)
+        {
+            if (userId == null) return null;
+            if(Sender?.Id == userId)return Reciever?.FullName;
+            return Sender?.FullName;
+        }
+        public string? GetOtherBankName(string? userId)
+        {
+            if (userId == null) return null;
+            if (Sender?.Id == userId)return Reciever?.Bank?.Name;
+            return Sender?.Bank?.Name;
+        }
+        public string? GetStatus(string? userId)
+        {
+            if (userId == null) return null; 
+            if (Sender?.Id == userId) return "Debit";
+            return "Credit";
+        }
     }
 }

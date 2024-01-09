@@ -123,7 +123,7 @@ namespace Banking.Controllers
                 model.TransactionVM.SenderId, 
                 model.TransactionVM.Amount);
 
-            if(!_transactionService.CheckIfBalanceIsEnough(model.TransactionVM.Amount, model.TransactionVM.SenderId))
+            if(!_transactionService.CheckIfBalanceIsEnough(model.TransactionVM.Amount, User.Identity.GetUserId()))
             {
                 TempData["NotEnoughBalance"] = "yes";
             }

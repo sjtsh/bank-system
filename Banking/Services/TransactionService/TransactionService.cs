@@ -25,7 +25,8 @@ namespace Banking.Services
             UserModel sender = context.Users.Where(user => user.Id == transaction.SenderId).First();
             UserModel reciever = context.Users.Where(user => user.Id == transaction.RecieverId).First();
 
-            if (sender.Balance < 0)
+            Console.WriteLine((sender.Balance - transaction.Amount));
+            if ((sender.Balance - transaction.Amount) < 0)
             {
                 /// Balance cannot go lower than 0
                 context.Database.RollbackTransaction();
@@ -36,7 +37,7 @@ namespace Banking.Services
             int modifiedCount3 = context.Database.ExecuteSql($"UPDATE bank SET TotalBalance = TotalBalance + {transaction.Amount} WHERE id = {reciever.BankId};");
             int modifiedCount4 = context.Database.ExecuteSql($"UPDATE bank SET TotalBalance = TotalBalance - {transaction.Amount} WHERE id = {sender.BankId};");
             int modifiedCount5 = context.Database.ExecuteSql($"UPDATE bank SET TotalDeposit = TotalDeposit + {transaction.Amount} WHERE id = {reciever.BankId};");
-            int modifiedCount6 = context.Database.ExecuteSql($"UPDATE bank SET TotalWithdrawl = TotalWithdrawl - {transaction.Amount} WHERE id = {sender.BankId};");
+            int modifiedCount6 = context.Database.ExecuteSql($"UPDATE bank SET TotalWithdrawl = TotalWithdrawl + {transaction.Amount} WHERE id = {sender.BankId};");
 
             if(modifiedCount1 == 0 || modifiedCount2 == 0 || modifiedCount3 == 0 || modifiedCount4 == 0 || modifiedCount5 == 0 || modifiedCount6 == 0)
             {
@@ -45,6 +46,8 @@ namespace Banking.Services
                 return null;
             }
 
+
+            context.SaveChanges();
             /// Everything is good
             context.Database.CommitTransaction();
 
@@ -60,6 +63,9 @@ namespace Banking.Services
             context.Database.BeginTransaction();
 
             context.Add(transaction);
+
+            context.SaveChanges();
+
             UserModel reciever = context.Users.Where(user => user.Id == transaction.RecieverId).First();
 
             ///update statement also updates user's last activity
@@ -81,9 +87,11 @@ namespace Banking.Services
                 .Where(transaction => transaction.RecieverId == userId || transaction.SenderId == userId)
                 .Where(transaction => transaction.CreatedAt >= start)
                 .Where(transaction => transaction.CreatedAt <= end)
+                .Include(transaction => transaction.Sender)
+                .ThenInclude(sender => sender!.Bank)
                 .Include(transaction => transaction.Reciever)
                 .ThenInclude(reciever => reciever!.Bank)
-                .OrderBy(transaction => transaction.CreatedAt)
+                .OrderByDescending(transaction => transaction.CreatedAt)
                 .ToList()
                 ];
         }
@@ -91,7 +99,7 @@ namespace Banking.Services
         bool ITransactionService.CheckIfBalanceIsEnough(double sendingMoney, string senderId)
         {
             var user = context.Users.Where(user => user.Id == senderId).First();
-            if(user.Balance > sendingMoney)
+            if(user.Balance >= sendingMoney)
             {
                 return true;
             }

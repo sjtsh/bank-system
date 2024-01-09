@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md col-sm col-lg col border-end ">
                 <form class="border-bottom personal-info" asp-action="UpdateUserData" asp-controller="User" method="post">
-                    <h4 class="border-bottom my-2 py-3 fw-bold">Personal Information (@Model.UserModel.Balance)</h4>
+                    <h4 class="border-bottom my-2 py-3 fw-bold">Personal Information ( £ @Model.UserModel.Balance )</h4>
                     <div class="my-2">
                         <span class="fw-bold">First Name :</span> <input type="text" asp-for="UserModel.FirstName" value=@Model.UserModel.FirstName />
                     </div>
@@ -93,10 +93,12 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Sender</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Bank</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Date</th>
                             <th scope="col">Remarks</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,10 +107,12 @@
                             @foreach (var trans in Model.TransactionModels)
                             {
                                 <tr>
-                                    <th>@trans.SenderId</th>
+                                    <th>@trans.GetOtherUserName(Model.UserModel.Id)</th>
+                                    <td>@trans.GetOtherBankName(Model.UserModel.Id)</td>>
                                     <td>@trans.Amount</td>
                                     <td>@trans.CreatedAt</td>
                                     <td>@trans.Remark</td>
+                                    <td>@trans.GetStatus(Model.UserModel.Id)</td>
                                 </tr>
                             }
                         }
