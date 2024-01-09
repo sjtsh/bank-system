@@ -1,0 +1,89 @@
+﻿@model Banking.ViewModels.UserTransactionPageVM
+@{
+    ViewData["Title"] = "Transactions";
+}
+
+<div class="my-3 dashboard user-transaction">
+    <div class="row">
+        <div class="col-4 col-md-4 col-sm-4">
+            <a href="/Admin/Index"><span> <---</span> </a>
+        </div>
+        <div class="col-4 col-md-4 col-sm-4">
+            <h3>Users Transaction</h3>
+        </div>
+        
+        <div class="col-4 col-md-4 col-sm-4">
+            <div class="d-flex justify-content-end nav-bar">
+                <span class="welcome-name">Welcome, @ViewBag.Name</span>
+                <div class="dropdown">
+                    <img src="~/images/user.png" class="user-pp dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" />
+                    <ul class="dropdown-menu p-0">
+                        <li><a class="dropdown-item" href="/Account/Logout"><b>Logout</b></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content my-2">
+        <div class="row">
+            @* <form asp-action="UserTransaction" asp-controller="Admin" method="post">
+                <div class="row">
+                    <div class="form-group col-5">
+                        <label for="start"> Start Date:</label>
+                        <input type="date" class="form-control" asp-for="StartDate" required>
+                    </div>
+                    <div class="form-group col-5 ">
+                        <label for="end">End Date:</label>
+                        <input type="date" class="form-control" asp-for="EndDate" required>
+                    </div>
+                    <div class="form-group col-auto btn-search-transaction">
+                        <button type="submit" class="btn btn-secondary   mx-2">
+                            Go
+                        </button>
+                    </div>
+                </div>
+            </form> *@
+        </div>
+        <div class="row">
+           <div class="col col-md col-sm">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sender Name</th>
+                            <th scope="col">Reciver Name</th>
+                            <th scope="col">Total Amount</th>
+                            <th scope="col">Remarks</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model?.TransactionModels != null)
+                        {
+                            @foreach (var userTransaction in Model.TransactionModels)
+                            {
+                                <tr>
+                                    <td>@userTransaction.Sender.FullName</td>
+                                    <td>@userTransaction.Reciever.FullName</td>
+                                    <td>@userTransaction.Amount</td>
+                                    <td>@userTransaction.Remark</td>
+                                    <td>@userTransaction.CreatedAt</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="4" class="text-center">Not Found</td></tr>
+                        }
+                    </tbody>
+                </table>
+           </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+    </script>
+}

@@ -9,7 +9,7 @@ namespace Banking.Services
     {
         UserTransactionModel? ITransactionService.CreateTransaction(UserTransactionModel transaction)
         {
-            if(transaction.SenderId == null) return null;
+            if (transaction.SenderId == null) return null;
 
             /// new HttpStatusCodeResult(HttpStatusCode.BadRequest, "cant send to self")
             if (transaction.SenderId == transaction.RecieverId) return null;
@@ -38,7 +38,7 @@ namespace Banking.Services
             int modifiedCount5 = context.Database.ExecuteSql($"UPDATE bank SET TotalDeposit = TotalDeposit + {transaction.Amount} WHERE id = {reciever.BankId};");
             int modifiedCount6 = context.Database.ExecuteSql($"UPDATE bank SET TotalWithdrawl = TotalWithdrawl - {transaction.Amount} WHERE id = {sender.BankId};");
 
-            if(modifiedCount1 == 0 || modifiedCount2 == 0 || modifiedCount3 == 0 || modifiedCount4 == 0 || modifiedCount5 == 0 || modifiedCount6 == 0)
+            if (modifiedCount1 == 0 || modifiedCount2 == 0 || modifiedCount3 == 0 || modifiedCount4 == 0 || modifiedCount5 == 0 || modifiedCount6 == 0)
             {
                 /// One of the Id did not match
                 context.Database.RollbackTransaction();
@@ -76,15 +76,13 @@ namespace Banking.Services
 
         List<UserTransactionModel> ITransactionService.GetUserTransaction(string userId, DateTime start, DateTime end)
         {
-            return [
-                .. context.Transactions
-                .Where(transaction => transaction.RecieverId == userId || transaction.SenderId == userId)
-                .Where(transaction => transaction.CreatedAt >= start)
-                .Where(transaction => transaction.CreatedAt <= end)
-                .Include(transaction => transaction.Reciever)
-                .ThenInclude(reciever => reciever!.Bank)
-                .OrderBy(transaction => transaction.CreatedAt)
-                ];
+            return context.Transactions
+             .Where(t => t.RecieverId == userId || t.SenderId == userId)
+             .Where(t => t.CreatedAt >= start && t.CreatedAt <= end)
+             .Include(t => t.Reciever)
+               .ThenInclude(r => r.Bank)
+             .OrderBy(t => t.CreatedAt)
+             .ToList();
         }
 
         List<UserTransactionModel> ITransactionService.GetBankTransaction(int bankId, DateTime start, DateTime end)
@@ -99,6 +97,7 @@ namespace Banking.Services
                 .ThenInclude(sender => sender!.Bank)
                 .Where(transaction => transaction.Reciever!.BankId == bankId || transaction.Sender!.BankId == bankId)
                 .OrderBy(transaction => transaction.CreatedAt)
+                .ToList()
                 ];
         }
     }
