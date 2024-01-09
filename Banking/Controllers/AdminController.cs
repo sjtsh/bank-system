@@ -40,11 +40,27 @@ namespace Banking.Controllers
             DateTime start = end.AddMonths(-1);
 
             model.TransactionModels = transactionService.GetUserTransaction(userId, start, end);
+            
+            model.UserId = userId;
 
-            return View();
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult UserTransaction(UserTransactionPageVM model)
+        {
+            var firstNameClaim = User?.Identity?.Name;
+
+            if (firstNameClaim != null)
+            {
+                ViewBag.Name = firstNameClaim;
+            }
+
+            model.TransactionModels = transactionService.GetUserTransaction(model.UserId, (DateTime) model.StartDate, (DateTime) model.EndDate);
+
+            return View(model);
         }
 
-            public IActionResult GetUserData(string userId, DateTime start, DateTime end)
+        public IActionResult GetUserData(string userId, DateTime start, DateTime end)
         { 
             List<UserTransactionModel> transactions = transactionService.GetUserTransaction(userId, start, end);
             return View(transactions);
@@ -62,6 +78,40 @@ namespace Banking.Controllers
             logger.LogInformation("Admin is updating user data");
             userService.UpdateUser(model);
             return RedirectToAction("Index", "Admin");
+        }
+
+        public IActionResult BankTransaction(int bankId)
+        {
+            BankTransactionPageVM model = new BankTransactionPageVM();
+            var firstNameClaim = User?.Identity?.Name;
+
+            if (firstNameClaim != null)
+            {
+                ViewBag.Name = firstNameClaim;
+            }
+
+            DateTime end = DateTime.Now;
+            DateTime start = end.AddMonths(-1);
+
+            model.TransactionModels = transactionService.GetBankTransaction(bankId, start, end);
+
+            model.BankId = bankId;
+
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult BankTransaction(BankTransactionPageVM model)
+        {
+            var firstNameClaim = User?.Identity?.Name;
+
+            if (firstNameClaim != null)
+            {
+                ViewBag.Name = firstNameClaim;
+            }
+
+            model.TransactionModels = transactionService.GetBankTransaction((int) model.BankId, (DateTime) model.StartDate, (DateTime)model.EndDate);
+
+            return View(model);
         }
     }
 }

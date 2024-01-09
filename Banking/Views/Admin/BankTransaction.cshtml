@@ -1,6 +1,6 @@
-﻿@model Banking.ViewModels.UserTransactionPageVM
+﻿@model Banking.ViewModels.BankTransactionPageVM
 @{
-    ViewData["Title"] = "User Transactions";
+    ViewData["Title"] = "Bank Transactions";
 }
 
 <div class="my-3 dashboard user-transaction">
@@ -9,9 +9,9 @@
             <a href="/Admin/Index"><span> <---</span> </a>
         </div>
         <div class="col-4 col-md-4 col-sm-4">
-            <h3>Users Transaction</h3>
+            <h3>Bank Transactions</h3>
         </div>
-        
+
         <div class="col-4 col-md-4 col-sm-4">
             <div class="d-flex justify-content-end nav-bar">
                 <span class="welcome-name">Welcome, @ViewBag.Name</span>
@@ -24,15 +24,15 @@
             </div>
         </div>
     </div>
-    
+
     <div class="content my-2">
         <div class="row my-3">
-            <form asp-action="UserTransaction" asp-controller="Admin" method="post">
+            <form asp-action="BankTransaction" asp-controller="Admin" method="post">
                 <div class="row">
                     <div class="form-group col-5">
                         <label for="start"> Start Date:</label>
                         <input type="date" class="form-control" asp-for="StartDate" required>
-                        <input type="hidden" class="form-control" asp-for="UserId" value=@Model.UserId>
+                        <input type="hidden" class="form-control" asp-for="BankId" value=@Model.BankId>
                     </div>
                     <div class="form-group col-5 ">
                         <label for="end">End Date:</label>
@@ -47,10 +47,11 @@
             </form>
         </div>
         <div class="row">
-           <div class="col col-md col-sm">
+            <div class="col col-md col-sm">
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th scope="col">Bank Name</th>
                             <th scope="col">Sender Name</th>
                             <th scope="col">Reciver Name</th>
                             <th scope="col">Total Amount</th>
@@ -65,6 +66,7 @@
                             {
                                 <tr>
                                     <td>@userTransaction?.Sender?.FullName</td>
+                                    <td>@userTransaction?.Sender?.FullName</td>
                                     <td>@userTransaction?.Reciever?.FullName</td>
                                     <td>@userTransaction.Amount</td>
                                     <td>@userTransaction.Remark</td>
@@ -78,7 +80,7 @@
                         }
                     </tbody>
                 </table>
-           </div>
+            </div>
         </div>
     </div>
 </div>
