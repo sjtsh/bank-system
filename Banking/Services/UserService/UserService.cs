@@ -40,5 +40,10 @@ namespace Banking.Services
         {
             return context.Users.Max(element => element.AccountNumber);
         }
+
+        UserModel IUserService.GetUser(string userId)
+        {
+            return context.Users.Where(user => user.Id == userId && !user.IsAdmin).Include(user => user.Bank).First();
+        }
     }
 }

@@ -16,6 +16,16 @@ namespace Banking.Services
         /// </returns>
          List<UserModel> GetUsers();
 
+        /// <summary>   
+        /// Get Users
+        /// </summary>
+        /// <returns>
+        /// 1. User
+        /// 2. Their Bank
+        /// 3. Not Admin
+        /// </returns>
+        UserModel GetUser(string userId);
+
         /// <summary>
         /// Find user summary
         /// Might not return the user if phone not in use

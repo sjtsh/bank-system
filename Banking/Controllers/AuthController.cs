@@ -11,11 +11,12 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Banking.Controllers
 {
-    public class AuthController(IUserService service, IConfiguration configuration, UserManager<UserModel> userManager) : Controller
+    public class AuthController(IUserService service, IBankService bankService, IConfiguration configuration, UserManager<UserModel> userManager) : Controller
     {
         private readonly UserManager<UserModel> _userManager = userManager;
         private readonly IUserService _service = service;
         private readonly IConfiguration _configuration = configuration;
+        private readonly IBankService _bankService = bankService;
 
         public IActionResult Login()
         {
@@ -90,7 +91,15 @@ namespace Banking.Controllers
                 return RedirectToAction("SignUp", "Auth"); 
             await _userManager.AddToRoleAsync(model, UserRoles.User);
             return RedirectToAction("Login", "Auth");
-        } 
+        }
+
+        [HttpGet]
+        public List<BankModel> GetUserData()
+        {
+            List<BankModel> banks = bankService.GetBanks();
+            return banks;
+        }
+
     }
 }
  

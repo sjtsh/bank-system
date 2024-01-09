@@ -137,3 +137,4 @@ D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\System.IdentityModel.Toke
 D:\Study\Projects\bank-system\Banking\obj\Debug\net8.0\Banking.MvcApplicationPartsAssemblyInfo.cs
 D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\Study\Projects\bank-system\Banking\bin\Debug\net8.0\Microsoft.AspNet.Identity.Core.dll

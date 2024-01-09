@@ -1,6 +1,7 @@
 ﻿using Banking.Models;
 using Banking.Services;
 using JWTAuthentication.Authentication;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,10 @@ namespace Banking.Controllers
         [HttpPost]
         public IActionResult CreateTransaction(UserTransactionModel model)
         {
+            if (model.SenderId != User.Identity.GetUserId())
+            {
+                //throw
+            }
             logger.LogInformation("A transaction is being created");
             transactionService.CreateTransaction(model); 
             return RedirectToAction("Index", "Transaction");
