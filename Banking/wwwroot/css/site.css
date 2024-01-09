@@ -1,22 +1,56 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+.user-pp {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 1px solid #bdbac1;
+    border-radius: 50%;
+    padding: 3px;
+}
+.welcome-name {
+    align-items: center;
+    display: flex;
+    margin-right: 10px;
+}
+.dashboard li {
+    max-width: fit-content;
+    width: fit-content;
+}
+.dashboard ul{
+    min-width:0;
+}
+.dropdown-menu {
+    transform: translate(-22px, 42px) !important;
+}
+
+.personal-info input {
+    border: none;
+    width: fit-content !important;
+}
+
+.personal-info input:focus{
+    border:none;
+}
+
+.personal-info input:focus-visible {
+    outline:none;
+} 
+.content {
+    border: 1px solid #d7d1d163;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+.search-img {
+    width: 40px;
+    height: 40px;
+}
+.btn-search-transaction {
+    align-items: end;
+    display: flex;
 }

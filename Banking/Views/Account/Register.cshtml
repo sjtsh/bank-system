@@ -1,10 +1,11 @@
-﻿@model UserModel
+﻿@model Banking.ViewModels.RegisterVM
 @{
     ViewData["Title"] = "Register";
 }
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
-        <form class="login-form" id="login-form" asp-action="register" asp-controller="auth">
+       
+        <form class="login-form" id="login-form" asp-action="Register" asp-controller="Account">
             <h3 class="text-center my-3">Login Now</h3>
             <!-- Email input -->
             <div class="form-outline mb-4">
@@ -16,6 +17,11 @@
                 <label class="form-label" for="form2Example1">Middle Name</label>
                 <input asp-for="MiddleName" class="form-control"  />
             </div>
+            
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example1">Last Name</label>
+                <input asp-for="LastName" class="form-control"  />
+            </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example1">Email</label>
@@ -24,8 +30,22 @@
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example1">Phone Number</label>
-                <input asp-for="PhoneNumber" class="form-control" required />
+                <input asp-for="Phone" class="form-select" required />
+                <span class="text-danger">@TempData["Invalid-Phone"]</span>
             </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example1">Bank</label>
+                <select asp-for="BankId" class="form-control" required />
+                <option value="" selected>Select Bank</option>
+                @foreach (var bank in Model?.Banks)
+                {
+                    <option value=@bank.Id>@bank.Name</option>
+
+                }
+                </select>
+            </div>
+
 
             <!-- Password input -->
             <div class="form-outline mb-4">
@@ -43,3 +63,7 @@
     </div>
 </div>
 
+@section Scripts{
+    <script>
+    </script>
+}

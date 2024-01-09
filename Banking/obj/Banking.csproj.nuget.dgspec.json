@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\Projects\\bank-system\\Banking\\Banking.csproj": {}
+    "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Banking.csproj": {}
   },
   "projects": {
-    "D:\\Study\\Projects\\bank-system\\Banking\\Banking.csproj": {
+    "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Banking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Projects\\bank-system\\Banking\\Banking.csproj",
+        "projectUniqueName": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Banking.csproj",
         "projectName": "Banking",
-        "projectPath": "D:\\Study\\Projects\\bank-system\\Banking\\Banking.csproj",
-        "packagesPath": "C:\\Users\\maste\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Projects\\bank-system\\Banking\\obj\\",
+        "projectPath": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\Banking.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "D:\\.Net\\dotnet banking system\\bank-system\\Banking\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\maste\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {

@@ -25,13 +25,14 @@ namespace Banking.Services
 
         UserModel? IUserService.UpdateUser(UserModel information)
         {
-            UserModel? user = context.Users.Where(element => information.Id == element.Id).FirstOrDefault();
+            UserModel? user = context.Users.Where(element => element.Id == information.Id).FirstOrDefault();
             if (user == null) return user;
             user.FirstName = information.FirstName;
             user.MiddleName = information.MiddleName;
             user.LastName = information.LastName;
             user.SetEmail(information.GetEmail());
             user.IsDeleted = information.IsDeleted;
+            user.BankId = information.BankId;
             context.SaveChanges();
             return user;
         }

@@ -1,0 +1,46 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <form class="login-form" id="login-form" asp-action="Login" asp-controller="Account">
+            <h3 class="text-center my-3">Login Now</h3>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Phone</label>
+                <input type="text" asp-for="PhoneNumber" class="form-control" required />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form2Example2">Password</label>
+                <input type="password" asp-for="Password" class="form-control" required />
+            </div>
+
+            <!-- Submit button -->
+            <span class="text-danger">@TempData["invalid-user"]</span>
+            <button type="submit" class="btn btn-primary btn-block my-4">Sign in</button>
+            <div>
+                <a href="/Account/Register">Don't have account. Click here</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var message = '@TempData["register-message"]';
+            if (message == 'success') {
+                showToast("Register success", "success");
+            }
+        });
+    </script>
+}
+
+
+

@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "Banking.Controllers.TransactionController",
+    "Method": "Index",
+    "RelativePath": "Transaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Banking.Controllers.TransactionController",
+    "Method": "CreateTransaction",
+    "RelativePath": "Transaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Banking.Models.UserTransactionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,104 @@
+﻿@model Banking.ViewModels.UserPageVM
+<div class="my-3 dashboard">
+    <div class="d-flex justify-content-end nav-bar">
+        <span class="welcome-name">Welcome, @ViewBag.Name</span>
+        <div class="dropdown">
+            <img src="~/images/user.png" class="user-pp dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" />
+            <ul class="dropdown-menu p-0">
+                <li><a class="dropdown-item" href="/Account/Logout"><b>Logout</b></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content my-2">
+        <div class="row">
+            <div class="col-md col-sm col-lg col border-end personal-info">
+                <form class="form" asp-action="UpdateUserData" asp-controller="User" method="post">
+                    <h4 class="border-bottom my-2 py-3 fw-bold">Personal Information</h4>
+                    <div class="my-2">
+                        <span class="fw-bold">First Name :</span> <input type="text" asp-for="UserModel.FirstName" value=@Model.UserModel.FirstName />
+                    </div>
+                    <div class="my-2">
+                        <span class="fw-bold">Middle Name :</span> <input type="text" asp-for="UserModel.MiddleName" value=@Model.UserModel.MiddleName />
+                    </div>
+                    <div class="my-2">
+                        <span class="fw-bold">Last Name :</span> <input type="text" asp-for="UserModel.LastName" value=@Model.UserModel.LastName />
+                    </div>
+                    <div class="my-2">
+                        <span class="fw-bold">Phone :</span> <input type="text" asp-for="UserModel.PhoneNumber" value=@Model.UserModel.PhoneNumber readonly />
+                    </div>
+                    <div class="my-2">
+                        <span class="fw-bold">Email :</span> <input type="text" asp-for="UserModel.Email" value=@Model.UserModel.Email />
+                    </div>
+                    <div class="my-2">
+                        <span class="fw-bold">Bank : </span>
+                        <select asp-for="UserModel.BankId" class="form-control" required>
+                            @foreach (var bank in Model?.Banks)
+                            {
+                                <option value="@bank.Id" selected='@(Model?.UserModel?.BankId == bank.Id)'>@bank.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-secondary btn-block mb-4 mt-2">Update Info</button>
+                </form>
+            </div>
+            <div class="col-md col-sm col-lg col">
+                <h4 class="border-bottom my-2 py-3 fw-bold">My Transactions</h4>
+                <form class="transaction-info" asp-action="Index" asp-controller="User" method="post">
+                    <div class="row">
+                        <div class="form-group col-5">
+                            <label for="start"> Start Date:</label>
+                            <input type="date" class="form-control" asp-for="EndDate" required>
+                        </div>
+                        <div class="form-group col-5 ">
+                            <label for="end">End Date:</label>
+                            <input type="date" class="form-control" asp-for="EndDate" required>
+                        </div>
+                        <div class="form-group col-auto btn-search-transaction">
+                            <button type="submit" class="btn btn-secondary   mx-2">
+                                Go
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sender</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model?.TransactionModels != null)
+                        {
+                            @foreach (var trans in Model.TransactionModels)
+                            {
+                                <tr>
+                                    <th>@trans.SenderId</th>
+                                    <td>@trans.Amount</td>
+                                    <td>@trans.CreatedAt</td>
+                                    <td>@trans.Remark</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr><td colspan="4" class="text-center">Not Found</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+
+    </script>
+}

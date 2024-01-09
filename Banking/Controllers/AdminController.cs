@@ -1,14 +1,13 @@
 ﻿using Banking.Models;
 using Banking.Services;
 using JWTAuthentication.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Banking.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
-    [ApiController]
-    [Route("[controller]")]
+    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "Admin")]
     public class AdminController(ILogger<AdminController> logger, IUserService userService, IBankService bankService, ITransactionService transactionService) : Controller
     {
          

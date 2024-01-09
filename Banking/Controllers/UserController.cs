@@ -4,20 +4,81 @@ using Banking.Models;
 using Banking.Services;
 using JWTAuthentication.Authentication;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using Banking.ViewModels;
 
 namespace Banking.Controllers
 {
-    [Authorize(Roles = UserRoles.User)]
-    [ApiController]
-    [Route("[controller]")]
-    public class UserController(ILogger<UserController> logger, IUserService userService, ITransactionService transactionService) : Controller
+    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme, Roles = "User")]
+    public class UserController : Controller
     {
-         
-        public IActionResult GetUserData(DateTime start, DateTime end)
+        private readonly ILogger<UserController> _logger;
+        private readonly IUserService _userService;
+        private readonly IBankService _bankService;
+        private readonly ITransactionService _transactionService;
+        public UserController(ILogger<UserController> logger, IUserService userService, ITransactionService transactionService, IBankService bankService)
         {
+            _logger = logger;
+            _userService = userService;
+            _transactionService = transactionService;
+            _bankService = bankService;
+        }
+        [HttpPost]
+        public IActionResult Index(UserPageVM model)
+        {
+            var firstNameClaim = User?.Identity?.Name;
+
+            if (firstNameClaim != null)
+            {
+                ViewBag.Name = firstNameClaim;
+            }
+
+            string userId = User?.Identity?.GetUserId();
+
+            if (userId != null)
+            {
+                model.UserModel = _userService.GetUser(userId);
+                model.Banks = _bankService.GetBanks();
+            }
+            model.TransactionModels = GetUserTransactionData(model);
+            return View(model);
+        }
+        public IActionResult Index()
+        {
+
+            var firstNameClaim = User?.Identity?.Name;
+
+            if (firstNameClaim != null)
+            {
+                ViewBag.Name = firstNameClaim;
+            }
+
+            UserPageVM userPageVM = new UserPageVM();
+
+            string userId = User?.Identity?.GetUserId();
+
+            if (userId != null)
+            {
+                userPageVM.UserModel = _userService.GetUser(userId);
+                userPageVM.Banks = _bankService.GetBanks();
+            }
+
+            return View(userPageVM);
+        }
+        public List<UserTransactionModel> GetUserTransactionData(UserPageVM model)
+        {
+            if(model.StartDate is null)
+            {
+                model.StartDate = DateTime.Now.Date;
+            } 
+            if(model.EndDate is null)
+            {
+                model.EndDate = DateTime.Now.Date;
+            } 
             string userId = User.Identity.GetUserId();
-            List<UserTransactionModel> transactions = transactionService.GetUserTransaction(userId, start, end);
-            return View(transactions);
+            List<UserTransactionModel> transactions = _transactionService.GetUserTransaction(userId, (DateTime) model.StartDate, (DateTime) model.EndDate);
+            return transactions;
         }
 
 
@@ -25,19 +86,23 @@ namespace Banking.Controllers
         public UserModel GetDetail()
         {
             string userId = User.Identity.GetUserId();
-            UserModel user = userService.GetUser(userId);
+            UserModel user = _userService.GetUser(userId);
             return user;
         }
 
-        [HttpPut]
-        public IActionResult UpdateUserData(UserModel model)
+        [HttpPost]
+        public IActionResult UpdateUserData(UserPageVM model)
         {
-            if(model.Id != User.Identity.GetUserId()){
-                //throw
+            string userId = User.Identity.GetUserId();
+
+            if (userId != null)
+            {
+                model.UserModel.Id = userId;
             }
-            logger.LogInformation("The user is updating his data");
-            userService.UpdateUser(model);
-            return RedirectToAction("Index", "GetUserData");
+
+            _logger.LogInformation("The user is updating his data");
+            _userService.UpdateUser(model.UserModel);
+            return RedirectToAction("Index", "User");
         }
     }
 }
