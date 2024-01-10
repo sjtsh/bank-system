@@ -6,7 +6,7 @@
     <div class="col-md-6">
        
         <form class="login-form" id="login-form" asp-action="Register" asp-controller="Account">
-            <h3 class="text-center my-3">Login Now</h3>
+            <h3 class="text-center my-3">Register Now</h3>
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example1">First Name</label>
@@ -56,7 +56,7 @@
             <!-- Submit button -->
             <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
             <div>
-                <a href="/Home/login">Already have account. Click here</a>
+                <a href="/Account/Login">Already have account. Click here</a>
             </div>
 
         </form>
@@ -64,6 +64,12 @@
 </div>
 
 @section Scripts{
-    <script>
+        <script>
+                $(document).ready(function () {
+                var ErrorMessage = '@TempData["ErrorMessage"]';
+                if (ErrorMessage) {
+                    showToast(ErrorMessage, "error");
+                }
+            });
     </script>
 }

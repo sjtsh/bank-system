@@ -87,8 +87,13 @@
     </div>
 </div>
 
-
 @section Scripts {
-    <script>
-    </script>
+            <script>
+                    $(document).ready(function () {
+                    var ErrorMessage = '@TempData["ErrorMessage"]';
+                    if (ErrorMessage) {
+                        showToast(ErrorMessage, "error");
+                    }
+                });
+        </script>
 }

@@ -34,52 +34,60 @@ namespace Banking.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            UserModel? user = _service.FindUserByPhone(model.PhoneNumber);
-            if (user is null)
+            try
             {
-                TempData["invalid-user"] = "Invalid Credential";
-                return View();
-            }
-            Console.WriteLine(user);
-            bool isRightPassword = false;
-            if (user != null)
-            {
-                isRightPassword = await _userManager.CheckPasswordAsync(user, model.Password);
-            }
-            if (!isRightPassword)
-            {
-                TempData["invalid-user"] = "Invalid Credential";
-                return View();
-            }
-            if (user != null && isRightPassword)
-            {
-                var userRoles = await _userManager.GetRolesAsync(user);
 
-                var authClaims = new List<Claim>
+                UserModel? user = _service.FindUserByPhone(model.PhoneNumber);
+                if (user is null)
+                {
+                    TempData["invalid-user"] = "Invalid Credential";
+                    return View();
+                }
+                Console.WriteLine(user);
+                bool isRightPassword = false;
+                if (user != null)
+                {
+                    isRightPassword = await _userManager.CheckPasswordAsync(user, model.Password);
+                }
+                if (!isRightPassword)
+                {
+                    TempData["invalid-user"] = "Invalid Credential";
+                    return View();
+                }
+                if (user != null && isRightPassword)
+                {
+                    var userRoles = await _userManager.GetRolesAsync(user);
+
+                    var authClaims = new List<Claim>
                 {
                     new(ClaimTypes.Name, user.FirstName),
                     new(ClaimTypes.NameIdentifier, user.Id),
                     new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
 
-                foreach (var userRole in userRoles)
-                {
-                    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
+                    foreach (var userRole in userRoles)
+                    {
+                        authClaims.Add(new Claim(ClaimTypes.Role, userRole));
+                    }
+
+                    var claimsIdentity = new ClaimsIdentity(authClaims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+                    if (user.IsAdmin)
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "User");
+
+                    }
                 }
-
-                var claimsIdentity = new ClaimsIdentity(authClaims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-
-                if (user.IsAdmin)
-                {
-                    return RedirectToAction("Index", "Admin");
-                }
-                else
-                {
-                    return RedirectToAction("Index", "User");
-
-                }
+            }
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = e.Message.ToString();
             }
             return View();
         }
@@ -102,18 +110,26 @@ namespace Banking.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterVM model)
         {
-            UserModel? userExists = _service.FindUserByPhone(model.Phone);
-            if (userExists != null)
+            try
             {
-                TempData["Invalid-Phone"] = "* Phone number already taken.";
-                return View();
+                UserModel? userExists = _service.FindUserByPhone(model.Phone);
+                if (userExists != null)
+                {
+                    TempData["Invalid-Phone"] = "* Phone number already taken.";
+                    return View();
+                }
+                UserModel user = new UserModel(model.Phone, model.FirstName, model.MiddleName, model.LastName, model.Email, model.Password, model.BankId);
+                IdentityResult identity = await _userManager.CreateAsync(user, user.Password);
+                if (!identity.Succeeded)
+                    return RedirectToAction("Regigster", "Account");
+                await _userManager.AddToRoleAsync(user, UserRoles.User);
+                TempData["register-message"] = "success";
             }
-            UserModel user = new UserModel(model.Phone, model.FirstName, model.MiddleName, model.LastName, model.Email, model.Password, model.BankId);
-            IdentityResult identity = await _userManager.CreateAsync(user, user.Password);
-            if (!identity.Succeeded)
-                return RedirectToAction("Regigster", "Account");
-            await _userManager.AddToRoleAsync(user, UserRoles.User);
-            TempData["register-message"] = "success";
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = e.Message.ToString();
+                return RedirectToAction("Register", "Account");
+            }
             return RedirectToAction("Login", "Account");
         }
 

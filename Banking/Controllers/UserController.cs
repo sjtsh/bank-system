@@ -103,41 +103,55 @@ namespace Banking.Controllers
         [HttpPost]
         public IActionResult UpdateUserData(UserPageVM model)
         {
-            string userId = User.Identity.GetUserId();
-
-            if (userId != null)
+            try
             {
-                model.UserModel.Id = userId;
-            }
+                string userId = User.Identity.GetUserId();
 
-            _logger.LogInformation("The user is updating his data");
-            _userService.UpdateUser(model.UserModel);
+                if (userId != null)
+                {
+                    model.UserModel.Id = userId;
+                }
+
+                _logger.LogInformation("The user is updating his data");
+                _userService.UpdateUser(model.UserModel);
+            }
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = e.Message.ToString();
+            }
             return RedirectToAction("Index", "User");
         }
         [HttpPost]
         public IActionResult SendMoney(UserPageVM model)
         {
-            UserTransactionModel userTransaction = new UserTransactionModel(
-                model.TransactionVM.Remarks,
-                model.TransactionVM.ReciverId, 
-                model.TransactionVM.SenderId, 
-                model.TransactionVM.Amount);
-
-            if(!_transactionService.CheckIfBalanceIsEnough(model.TransactionVM.Amount, User.Identity.GetUserId()))
+            try
             {
-                TempData["NotEnoughBalance"] = "yes";
+                UserTransactionModel userTransaction = new UserTransactionModel(
+                    model.TransactionVM.Remarks,
+                    model.TransactionVM.ReciverId,
+                    model.TransactionVM.SenderId,
+                    model.TransactionVM.Amount);
+
+                if (!_transactionService.CheckIfBalanceIsEnough(model.TransactionVM.Amount, User.Identity.GetUserId()))
+                {
+                    TempData["NotEnoughBalance"] = "yes";
+                }
+
+                var tr = _transactionService.CreateTransaction(userTransaction);
+
+                if (tr is null)
+                {
+                    TempData["SendMoneyFail"] = "yes";
+
+                }
+                else
+                {
+                    TempData["SendMoneySuccessful"] = "yes";
+                }
             }
-
-            var tr = _transactionService.CreateTransaction(userTransaction);
-
-            if(tr is null)
+            catch (Exception e)
             {
-                TempData["SendMoneyFail"] = "yes";
-
-            }
-            else
-            {
-                TempData["SendMoneySuccessful"] = "yes";
+                TempData["ErrorMessage"] = e.Message.ToString();
             }
 
             return RedirectToAction("Index");   

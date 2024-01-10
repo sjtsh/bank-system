@@ -21,12 +21,15 @@ namespace Banking.Controllers
         [HttpPost]
         public IActionResult CreateTransaction(UserTransactionModel model)
         {
-            if (model.SenderId != User.Identity.GetUserId())
-            {
-                //throw
-            }
             logger.LogInformation("A transaction is being created");
-            transactionService.CreateTransaction(model); 
+            try
+            {
+                transactionService.CreateTransaction(model);
+            }
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = e.Message.ToString();
+            }
             return RedirectToAction("Index", "Transaction");
         }
     }

@@ -48,15 +48,21 @@ namespace Banking.Controllers
         [HttpPost]
         public IActionResult UserTransaction(UserTransactionPageVM model)
         {
-            var firstNameClaim = User?.Identity?.Name;
-
-            if (firstNameClaim != null)
+            try
             {
-                ViewBag.Name = firstNameClaim;
+                var firstNameClaim = User?.Identity?.Name;
+
+                if (firstNameClaim != null)
+                {
+                    ViewBag.Name = firstNameClaim;
+                }
+
+                model.TransactionModels = transactionService.GetUserTransaction(model.UserId, (DateTime)model.StartDate, (DateTime)model.EndDate);
             }
-
-            model.TransactionModels = transactionService.GetUserTransaction(model.UserId, (DateTime) model.StartDate, (DateTime) model.EndDate);
-
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = e.Message.ToString();
+            }
             return View(model);
         }
 
@@ -75,8 +81,15 @@ namespace Banking.Controllers
         [HttpPut]
         public IActionResult UpdateUserData(UserModel model)
         {
-            logger.LogInformation("Admin is updating user data");
-            userService.UpdateUser(model);
+            try
+            {
+                logger.LogInformation("Admin is updating user data");
+                userService.UpdateUser(model);
+            }
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = e.Message.ToString();
+            }
             return RedirectToAction("Index", "Admin");
         }
 
