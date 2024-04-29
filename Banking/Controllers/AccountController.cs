@@ -17,12 +17,14 @@ namespace Banking.Controllers
         private readonly IUserService _service;
         private readonly IConfiguration _configuration;
         private readonly IBankService _bankService;
-        public AccountController(UserManager<UserModel> userManager, IUserService service, IConfiguration configuration, IBankService bankService)
+        private readonly ITransactionService _transactionService;
+        public AccountController(UserManager<UserModel> userManager, IUserService service, IConfiguration configuration, IBankService bankService, ITransactionService transactionService)
         {
             _userManager = userManager;
             _service = service;
             _configuration = configuration;
             _bankService = bankService;
+            _transactionService = transactionService;
         }
 
 
@@ -122,6 +124,7 @@ namespace Banking.Controllers
                 IdentityResult identity = await _userManager.CreateAsync(user, user.Password);
                 if (!identity.Succeeded)
                     return RedirectToAction("Regigster", "Account");
+                _transactionService.SignInDeposit(new UserTransactionModel(user.Id, 10000));
                 await _userManager.AddToRoleAsync(user, UserRoles.User);
                 TempData["register-message"] = "success";
             }

@@ -60,22 +60,22 @@ namespace Banking.Services
         /// </summary>
         UserTransactionModel ITransactionService.SignInDeposit(UserTransactionModel transaction)
         {
-            context.Database.BeginTransaction();
 
             context.Add(transaction);
 
-            context.SaveChanges();
-
-            UserModel reciever = context.Users.Where(user => user.Id == transaction.RecieverId).First();
-
+            
+            Console.WriteLine("transaction.RecieverId");
+            Console.WriteLine(transaction.RecieverId);
+            Console.WriteLine(transaction.Amount);
             ///update statement also updates user's last activity
-            context.Database.ExecuteSql($"UPDATE user SET balance = balance + {transaction.Amount} WHERE id = {transaction.RecieverId}");
-
+            context.Database.ExecuteSql($"UPDATE user SET balance = balance + {transaction.Amount} WHERE id = {transaction.RecieverId};");
+            
+            UserModel reciever = context.Users.Where(user => user.Id == transaction.RecieverId).First();
             /// Uses raw sql query so "increment" can be used in order to prevent race conditions
             context.Database.ExecuteSql($"UPDATE bank SET TotalBalance = TotalBalance + {transaction.Amount} WHERE id = {reciever.BankId};");
             context.Database.ExecuteSql($"UPDATE bank SET TotalDeposit = TotalDeposit + {transaction.Amount} WHERE id = {reciever.BankId};");
 
-            context.Database.CommitTransaction();
+            context.SaveChanges();
 
             return transaction;
         }
