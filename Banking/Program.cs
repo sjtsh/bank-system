@@ -18,7 +18,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IBankService, BankService>();
-builder.Services.AddScoped<ISeeder, Seeder>();
+builder.Services.AddScoped<ISeeder, SeederTej>();
 
 
 // For Identity
